@@ -1,1 +1,2 @@
-# symfony-rabbit-docker
+Docker - RabbitMQ - Symfony 4.3
+==========

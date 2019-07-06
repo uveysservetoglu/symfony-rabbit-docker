@@ -9,3 +9,6 @@
 172.21.0.1 - - [06/Jul/2019:18:39:22 +0000] "GET /robots.txt?1562438362909 HTTP/1.1" 404 24960 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
 172.21.0.1 - - [06/Jul/2019:18:40:14 +0000] "GET / HTTP/1.1" 404 4359 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
 172.21.0.1 - - [06/Jul/2019:18:40:15 +0000] "GET /robots.txt?1562438415369 HTTP/1.1" 404 24960 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+172.19.0.1 - - [06/Jul/2019:23:24:27 +0000] "GET / HTTP/1.1" 404 4359 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+172.19.0.1 - - [06/Jul/2019:23:24:31 +0000] "GET /robots.txt?1562455471767 HTTP/1.1" 404 24960 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+172.19.0.1 - - [06/Jul/2019:23:24:31 +0000] "GET /favicon.ico HTTP/1.1" 404 24999 "http://localhost/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"

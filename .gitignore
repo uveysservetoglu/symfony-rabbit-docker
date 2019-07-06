@@ -2,11 +2,14 @@
 ###> symfony/framework-bundle ###
 /.env.local
 /.idea
+.idea
 /.env.local.php
 /.env.*.local
 /public/bundles/
 /var/
 /vendor/
+/data/
+/symfony-docker_log/
 ###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###
