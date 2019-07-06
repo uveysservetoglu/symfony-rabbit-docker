@@ -1,0 +1,25 @@
+version: '2'
+services:
+  symfony-docker:
+    restart: always
+    image: symfony-docker
+    container_name: symfony-docker
+    hostname: symfony-docker
+    ports:
+      - "80:80"
+    volumes:
+      - ./default.conf:/etc/apache2/conf.d/symfony-docker.conf
+      - ./symfony-docker_log:/var/log/apache2
+      - ./:/var/www/html
+
+  mysql:
+    restart: always
+    image: mysql:5.7
+    container_name: mysql
+    hostname: mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./data:/var/lib/mysql
