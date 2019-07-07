@@ -19,13 +19,6 @@ class ProductConsumers implements  ConsumerInterface
     public function execute(AMQPMessage $msg)
     {
         $body = $msg->getBody();
-        $body = json_decode($body);
-
-
-        echo '--------------'.PHP_EOL;
-        print_r($body[0]);
-        echo '--------------'.PHP_EOL;
-        echo '--------------'.PHP_EOL;
-        echo '--------------'.PHP_EOL;
+        print_r($body);
     }
 }

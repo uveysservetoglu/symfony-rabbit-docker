@@ -24,4 +24,4 @@ services:
     # please note that last definitions always *replace* previous ones
 
     app.consumer.product:
-        App\Consumer\ProductConsumers
+       class: App\Consumer\ProductConsumers
