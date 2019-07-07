@@ -25,3 +25,4 @@ services:
 
     app.consumer.product:
        class: App\Consumer\ProductConsumers
+       arguments: ["@kernel", '@logger']
