@@ -4,7 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-  rabbitmq_host: 'localhost'
+  rabbitmq_host: '192.168.2.234'
   rabbitmq_port:  5672
   rabbitmq_user: 'guest'
   rabbitmq_password: 'guest'

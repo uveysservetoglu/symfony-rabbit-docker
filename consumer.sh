@@ -1,2 +1,2 @@
 #!/bin/bash
-#php bin/console rabbitmq:consumer product
+php bin/console rabbitmq:consumer product
