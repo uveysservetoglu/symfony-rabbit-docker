@@ -2,10 +2,9 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use FOS\RestBundle\Controller\FOSRestController;
 
-class BaseController extends AbstractController
+class BaseController extends FOSRestController
 {
     /**
      * @param $valid

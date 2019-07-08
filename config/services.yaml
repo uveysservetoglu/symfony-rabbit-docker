@@ -26,6 +26,7 @@ services:
     app.api_response:
         class: App\Response\ApiResponse
         arguments: ["@service_container"]
+        public: true
 
     app.consumer.product:
        class: App\Consumer\ProductConsumers

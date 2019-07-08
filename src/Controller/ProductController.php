@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Consumer\ProductConsumers;
 use App\Response\ApiResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,17 +16,17 @@ class ProductController extends BaseController
      * @param Request $request
      * @return JsonResponse
      */
-    public function postProduct(Request $request, ApiResponse $response) {
+    public function postProduct(Request $request) {
 
         $requestPost = json_decode($request->getContent());
 
         $valid = ["name", "description"];
 
         if(count($validation = parent::validation($valid,$requestPost)) > 0)
-            return $response->responseJson($validation,'msg.error.required', null, 404);
+            return $this->get('app.api_response')->responseJson($validation,'msg.error.required', null, 404);
 
 
-        return $response->responseJson(
+        return $this->get('app.api_response')->responseJson(
             $validation,
             'msg.success.create',
             null,
