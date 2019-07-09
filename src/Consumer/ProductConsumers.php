@@ -4,6 +4,7 @@
 namespace App\Consumer;
 
 use Symfony\Bridge\Monolog\Logger;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpKernel\Kernel;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -29,8 +30,14 @@ class ProductConsumers implements  ConsumerInterface
      */
     public function execute(AMQPMessage $msg)
     {
-        $body = $msg->getBody();
-        $this->logger->info($body);
-        print_r($body);
+        try{
+            $body = $msg->getBody();
+            $this->logger->info($body);
+            print_r($body);
+        }catch (Exception $exception){
+            throw $exception;
+
+        }
+
     }
 }

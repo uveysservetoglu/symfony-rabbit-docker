@@ -8,3 +8,4 @@ parameters:
   rabbitmq_port:  5672
   rabbitmq_user: 'guest'
   rabbitmq_password: 'guest'
+  kernel.logs_dir: /var/log/apache2

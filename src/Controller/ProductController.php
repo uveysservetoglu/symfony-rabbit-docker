@@ -10,7 +10,7 @@ class ProductController extends BaseController
 {
 
     /**
-     * @Rest\Route("/product", name="created-content", methods={"POST"})
+     * @Rest\Route("/product", name="created-product", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -18,7 +18,7 @@ class ProductController extends BaseController
 
         $requestPost = json_decode($request->getContent());
 
-        $valid = ["name", "description"];
+        $valid = ["quantity", "price", "discount_price", "sku", "name"];
 
         if(count($validation = parent::validation($valid,$requestPost)) > 0)
             return $this->get('app.api_response')->responseJson($validation,'msg.error.required', null, 404);

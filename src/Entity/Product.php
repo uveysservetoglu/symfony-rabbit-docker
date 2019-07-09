@@ -37,72 +37,200 @@ class Product
     private $sku;
 
     /**
-     * @ORM\Column(type="decimal", length=6, nullable=false)
+     * @ORM\Column(type="json", length=155, nullable=false)
      */
-    private $localizations;
+    private $name;
 
-    public function getId(): ?int
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url_key;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $canonical;
+
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $meta_keywords;
+
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $meta_description;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getQuantity(): ?int
+    /**
+     * @return mixed
+     */
+    public function getQuantity()
     {
         return $this->quantity;
     }
 
-    public function setQuantity(int $quantity): self
+    /**
+     * @param mixed $quantity
+     */
+    public function setQuantity($quantity): void
     {
         $this->quantity = $quantity;
-
-        return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getPrice()
     {
         return $this->price;
     }
 
-    public function setPrice($price): self
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price): void
     {
         $this->price = $price;
-
-        return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getDiscountPrice()
     {
         return $this->discount_price;
     }
 
-    public function setDiscountPrice($discount_price): self
+    /**
+     * @param mixed $discount_price
+     */
+    public function setDiscountPrice($discount_price): void
     {
         $this->discount_price = $discount_price;
-
-        return $this;
     }
 
-    public function getSku(): ?string
+    /**
+     * @return mixed
+     */
+    public function getSku()
     {
         return $this->sku;
     }
 
-    public function setSku(string $sku): self
+    /**
+     * @param mixed $sku
+     */
+    public function setSku($sku): void
     {
         $this->sku = $sku;
-
-        return $this;
     }
 
-    public function getLocalizations(): ?string
+    /**
+     * @return mixed
+     */
+    public function getName()
     {
-        return $this->localizations;
+        return $this->name;
     }
 
-    public function setLocalizations(string $localizations): self
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
     {
-        $this->localizations = $localizations;
+        $this->name = $name;
+    }
 
-        return $this;
+    /**
+     * @return mixed
+     */
+    public function getUrlKey()
+    {
+        return $this->url_key;
+    }
+
+    /**
+     * @param mixed $url_key
+     */
+    public function setUrlKey($url_key): void
+    {
+        $this->url_key = $url_key;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCanonical()
+    {
+        return $this->canonical;
+    }
+
+    /**
+     * @param mixed $canonical
+     */
+    public function setCanonical($canonical): void
+    {
+        $this->canonical = $canonical;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMetaKeywords()
+    {
+        return $this->meta_keywords;
+    }
+
+    /**
+     * @param mixed $meta_keywords
+     */
+    public function setMetaKeywords($meta_keywords): void
+    {
+        $this->meta_keywords = $meta_keywords;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMetaDescription()
+    {
+        return $this->meta_description;
+    }
+
+    /**
+     * @param mixed $meta_description
+     */
+    public function setMetaDescription($meta_description): void
+    {
+        $this->meta_description = $meta_description;
     }
 }
