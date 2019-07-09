@@ -9,25 +9,46 @@
 namespace App\Services;
 
 
+use App\Object\TranslatableText;
+use GuzzleHttp\Client;
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\HttpKernel\Log\Logger;
 
 class Translate
 {
     private $container;
-    private $logger;
 
-    public function __construct(Kernel $kernel, Logger $logger)
+    public function __construct(Kernel $kernel)
     {
         $this->container = $kernel->getContainer();
-        $this->logger = $logger;
-
     }
 
-    public function translate($text, $lang ='tr-en')
+    public function translate($text, $textLang ='tr', $tLang = ['en'])
     {
         $param = $this->container->getParameter('yandex_translate');
 
+        $client = new  Client();
 
+        $translateTextAndLang = array();
+
+        $translateTextAndLang[$textLang] = $text;
+
+        foreach ($tLang as $value){
+            $lang = $textLang.'-'.$value;
+            $res = $client->post($param["url"].'?key='.$param["api_key"].'&lang='.$lang.'&text='.$text);
+            $content = json_decode($res->getBody()->getContents());
+
+            $translateTextAndLang[$value] = $content->text[0];
+        }
+
+        $translatable = new TranslatableText($translateTextAndLang);
+
+
+
+        $serializer =  (new SerializerBuilder())->create()->build();
+        $jsonContent = $serializer->serialize($translatable, 'json');
+
+        return $jsonContent;
     }
 }

@@ -3,21 +3,11 @@
 
 namespace App\Object;
 use JMS\Serializer\Annotation as JMS;
-
 class TranslatableText
 {
-    /**
-     * @JMS\Type("string")
-     * @JMS\Groups({"tr","all"})
-     * @var string
-     * @JMS\Accessor(getter="getTr")
-     */
+
     private $tr;
-    /**
-     * @JMS\Type("string")
-     * @var string
-     * @JMS\Accessor(getter="getEn")
-     */
+
     private $en;
 
 
@@ -26,6 +16,7 @@ class TranslatableText
      */
     public function __construct($data=[])
     {
+
         if(!is_array($data) && !is_object($data)) return;
         foreach ($data as $index => $value)
         {

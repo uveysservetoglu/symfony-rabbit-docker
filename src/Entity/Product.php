@@ -37,7 +37,7 @@ class Product
     private $sku;
 
     /**
-     * @ORM\Column(type="json", length=155, nullable=false)
+     * @ORM\Column(type="string", length=155, nullable=false)
      */
     private $name;
 
@@ -47,7 +47,7 @@ class Product
     private $url_key;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=125, nullable=true)
      */
     private $canonical;
 
@@ -57,7 +57,7 @@ class Product
     private $description;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $meta_keywords;
 
@@ -83,15 +83,15 @@ class Product
     }
 
     /**
-     * @param mixed $quantity
+     * @param float $quantity
      */
-    public function setQuantity($quantity): void
+    public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getPrice()
     {
@@ -99,15 +99,15 @@ class Product
     }
 
     /**
-     * @param mixed $price
+     * @param float $price
      */
-    public function setPrice($price): void
+    public function setPrice($price)
     {
         $this->price = $price;
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getDiscountPrice()
     {
@@ -115,15 +115,15 @@ class Product
     }
 
     /**
-     * @param mixed $discount_price
+     * @param float $discount_price
      */
-    public function setDiscountPrice($discount_price): void
+    public function setDiscountPrice($discount_price)
     {
         $this->discount_price = $discount_price;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getSku()
     {
@@ -131,9 +131,9 @@ class Product
     }
 
     /**
-     * @param mixed $sku
+     * @param string $sku
      */
-    public function setSku($sku): void
+    public function setSku($sku)
     {
         $this->sku = $sku;
     }
@@ -149,13 +149,13 @@ class Product
     /**
      * @param mixed $name
      */
-    public function setName($name): void
+    public function setName($name)
     {
         $this->name = $name;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUrlKey()
     {
@@ -163,15 +163,15 @@ class Product
     }
 
     /**
-     * @param mixed $url_key
+     * @param string $url_key
      */
-    public function setUrlKey($url_key): void
+    public function setUrlKey($url_key)
     {
         $this->url_key = $url_key;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCanonical()
     {
@@ -179,9 +179,9 @@ class Product
     }
 
     /**
-     * @param mixed $canonical
+     * @param string $canonical
      */
-    public function setCanonical($canonical): void
+    public function setCanonical($canonical)
     {
         $this->canonical = $canonical;
     }
@@ -197,13 +197,13 @@ class Product
     /**
      * @param mixed $description
      */
-    public function setDescription($description): void
+    public function setDescription($description)
     {
         $this->description = $description;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getMetaKeywords()
     {
@@ -211,9 +211,9 @@ class Product
     }
 
     /**
-     * @param mixed $meta_keywords
+     * @param string $meta_keywords
      */
-    public function setMetaKeywords($meta_keywords): void
+    public function setMetaKeywords($meta_keywords)
     {
         $this->meta_keywords = $meta_keywords;
     }
@@ -229,7 +229,7 @@ class Product
     /**
      * @param mixed $meta_description
      */
-    public function setMetaDescription($meta_description): void
+    public function setMetaDescription($meta_description)
     {
         $this->meta_description = $meta_description;
     }

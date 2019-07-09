@@ -18,7 +18,7 @@ class ProductController extends BaseController
 
         $requestPost = json_decode($request->getContent());
 
-        $valid = ["quantity", "price", "discount_price", "sku", "name"];
+        $valid = ["quantity", "price", "discountPrice", "sku", "name"];
 
         if(count($validation = parent::validation($valid,$requestPost)) > 0)
             return $this->get('app.api_response')->responseJson($validation,'msg.error.required', null, 404);

@@ -30,7 +30,7 @@ services:
 
     app.translate:
         class: App\Services\Translate
-        arguments: ["@kernel", '@logger']
+        arguments: ["@kernel"]
         public: true
 
     app.consumer.product:

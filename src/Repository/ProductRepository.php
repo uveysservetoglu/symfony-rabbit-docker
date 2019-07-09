@@ -3,9 +3,6 @@
 namespace App\Repository;
 
 use App\Entity\Product;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Query\Expr\Base;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
  * @method Product|null find($id, $lockMode = null, $lockVersion = null)
@@ -15,10 +12,6 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class ProductRepository extends BaseRepository
 {
-    public function __construct(RegistryInterface $registry)
-    {
-        parent::__construct($registry, Product::class);
-    }
 
     // /**
     //  * @return Product[] Returns an array of Product objects

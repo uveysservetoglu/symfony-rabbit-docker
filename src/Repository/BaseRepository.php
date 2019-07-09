@@ -2,12 +2,11 @@
 
 namespace App\Repository;
 
-use App\Entity\Product;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityRepository;
 
 
-class BaseRepository extends ServiceEntityRepository
+class BaseRepository extends EntityRepository
 {
 
     public function save($entity)
