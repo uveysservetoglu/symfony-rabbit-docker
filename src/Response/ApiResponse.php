@@ -1,6 +1,7 @@
 <?php
 namespace App\Response;
 
+use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -36,6 +37,7 @@ class ApiResponse
                 'set'=>  $data,
             )
         ];
+
 
         if (!is_null($pagination) )
             $response["result"]["pagination"] =  $pagination;
