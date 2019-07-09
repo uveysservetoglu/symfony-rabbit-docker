@@ -28,6 +28,11 @@ services:
         arguments: ["@service_container"]
         public: true
 
+    app.translate:
+        class: App\Services\Translate
+        arguments: ["@kernel", '@logger']
+        public: true
+
     app.consumer.product:
        class: App\Consumer\ProductConsumers
        arguments: ["@kernel", '@logger']

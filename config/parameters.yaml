@@ -9,3 +9,7 @@ parameters:
   rabbitmq_user: 'guest'
   rabbitmq_password: 'guest'
   kernel.logs_dir: /var/log/apache2
+
+  yandex_translate :
+    api_key: 'trnsl.1.1.20190709T171833Z.e8988a89366fd591.4e0b091f24976313d69e25ab97d7b1182803e77c'
+    url : 'https://translate.yandex.net/api/v1.5/tr.json/translate'

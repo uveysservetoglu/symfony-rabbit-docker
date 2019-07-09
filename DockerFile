@@ -1,8 +1,6 @@
 FROM php:7.2-apache
 
 RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install sockets
-RUN docker-php-ext-install bcmath
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -25,5 +23,3 @@ RUN apt-get update && \
         libmcrypt-dev \
         libpng12-dev && \
     rm -rf /var/lib/apt/lists/* /usr/src/*
-
-CMD ["sh", "./consumer.sh"]

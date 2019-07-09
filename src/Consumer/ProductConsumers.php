@@ -32,11 +32,11 @@ class ProductConsumers implements  ConsumerInterface
     {
         try{
             $body = $msg->getBody();
-            $this->logger->info($body);
-            print_r($body);
+            $product = json_decode($body);
+
+
         }catch (Exception $exception){
             throw $exception;
-
         }
 
     }

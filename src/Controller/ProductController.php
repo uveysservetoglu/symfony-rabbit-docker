@@ -23,6 +23,7 @@ class ProductController extends BaseController
         if(count($validation = parent::validation($valid,$requestPost)) > 0)
             return $this->get('app.api_response')->responseJson($validation,'msg.error.required', null, 404);
 
+        $this->get('old_sound_rabbit_mq.product_producer')->publish(json_encode($requestPost));
 
         return $this->get('app.api_response')->responseJson(
             $validation,
