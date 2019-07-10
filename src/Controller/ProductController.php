@@ -19,11 +19,12 @@ class ProductController extends BaseController
     public function listProduct(Request $request) {
 
         $em = $this->container->get('doctrine')->getManager();
-        $product = $em->getRepository(Product::class)->findAllProduct();
-
 
         $limit = $request->query->get('limit');
         $offset = $request->query->get('offset');
+
+        $product = $em->getRepository(Product::class)->findAllProduct($limit, $offset);
+
 
         $pagination = (new ApiPagination($limit, count($product), $offset))->getConvertObject();
 

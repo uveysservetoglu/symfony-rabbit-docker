@@ -13,9 +13,12 @@ use App\Entity\Product;
 class ProductRepository extends BaseRepository
 {
 
-    public function findAllProduct()
+    public function findAllProduct($limit, $offset)
     {
-        $query = $this->createQueryBuilder('product')->getQuery();
+        $query = $this->createQueryBuilder('product')
+            ->setMaxResults($limit)
+            ->setFirstResult($offset)
+            ->getQuery();
         return $query->getArrayResult();
     }
 

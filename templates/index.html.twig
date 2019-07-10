@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <button class="btn btn-success mt-2">Ürün Ekle</button>
+            </div>
+            <div class="row datatable mt-2">
+                <table id="dtBasicExample" class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ürün Adı</th>
+                        <th scope="col">Adet</th>
+                        <th scope="col">Fiyat</th>
+                        <th scope="col">İndirimli Fiyat</th>
+                        <th scope="col">Açıklama</th>
+                        <th scope="col">Düzenle</th>
+                        <th scope="col">Sil</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in items">
+                            <th scope="row">{? item.id ?}</th>
+                            <td>{? item.name ?}</td>
+                            <td>{? item.quantity ?}</td>
+                            <td>{? item.price ?}</td>
+                            <td>{? item.discount_price ?}</td>
+                            <td>{? getLang(item.description) ?}</td>
+                            <td><button class="btn btn-info" @click="edit(item.id )">Düzenle</button></td>
+                            <td><button class="btn btn-danger">Sil</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% include'modal.html.twg' %}
+    </div>
+    <script>
+      var app = new Vue({
+        delimiters: ['{?', '?}'],
+        el: '#app',
+        data: {
+          items:null,
+          item: []
+        },
+        mounted(){
+          this.listProducts();
+        },
+        methods:{
+          listProducts(){
+            let limit = 10;
+            let offset = 0;
+
+            this.$http.get('/product?offset='+ offset +'&limit='+limit, {
+            })
+            .then(function(response){
+              this.items  = response.body.result.set;
+            });
+          },
+          getLang(text){
+
+            return (JSON.parse(text)).tr;
+          },
+          edit(id){
+            $('#modal').modal('show')
+            this.item = (this.items.filter(item => item.id === id))[0];
+
+            console.log(this.item);
+          }
+        }
+      })
+    </script>
+{% endblock %}

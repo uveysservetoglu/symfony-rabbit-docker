@@ -1,0 +1,62 @@
+<div class="modal" id="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ürün Ekleme / Düzenleme</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Ürün ism</label>
+                    <input type="text" class="form-control" id="name"  v-model="item.name" placeholder="Ürün Adı">
+                </div>
+                <div class="form-group">
+
+                    <label for="name">Ürün açıklama</label>
+                    <textarea  class="form-control" id="name" v-model="item.description" placeholder="Ürün Açıklama">
+                        {? item.description ?}
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Adet</label>
+                    <input type="text" class="form-control" id="quantity"  v-model="item.quantity" placeholder="Adet">
+                </div>
+                <div class="form-group">
+                    <label for="name">Discount Price</label>
+                    <input type="text" class="form-control" id="discountPrice"  v-model="item.discount_price" placeholder="Indırımlı fiyat">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Price</label>
+                    <input type="text" class="form-control" id="price"  v-model="item.price" placeholder="Fiyat">
+                </div>
+                <div class="form-group">
+                    <label for="name">Canonical</label>
+                    <input type="text" class="form-control" id="canonical"  v-model="item.canonical" placeholder="Canonical">
+                </div>
+                <div class="form-group">
+                    <label for="name">metaDescription</label>
+                    <input type="text" class="form-control" id="metaDescription"  v-model="item.meta_description" placeholder="metaDescription">
+                </div>
+                <div class="form-group">
+                    <label for="name">metaKeywords</label>
+                    <input type="text" class="form-control" id="metaKeywords"  v-model="item.meta_keywords" placeholder="metaKeywords">
+                </div>
+                <div class="form-group">
+                    <label for="name">sku</label>
+                    <input type="text" class="form-control" id="sku"  v-model="item.sku" placeholder="sku">
+                </div>
+                <div class="form-group">
+                    <label for="name">url_key</label>
+                    <input type="text" class="form-control" id="url_key"  v-model="item.url_key" placeholder="sku">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Kaydet</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>
