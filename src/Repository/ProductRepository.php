@@ -13,6 +13,12 @@ use App\Entity\Product;
 class ProductRepository extends BaseRepository
 {
 
+    public function findAllProduct()
+    {
+        $query = $this->createQueryBuilder('product')->getQuery();
+        return $query->getArrayResult();
+    }
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */

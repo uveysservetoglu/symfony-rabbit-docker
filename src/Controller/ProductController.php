@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Product;
-use JMS\Serializer\SerializerBuilder;
+use App\Object\Product;
+use App\Response\ApiPagination;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation as Rest;
@@ -15,20 +15,25 @@ class ProductController extends BaseController
      * @Rest\Route("/product", name="list-product", methods={"GET"})
      * @return JsonResponse
      */
-    public function listProduct() {
+    public function listProduct(Request $request) {
 
         $em = $this->container->get('doctrine')->getManager();
-        $product = $em->getRepository(Product::class)->findAll();
+        $product = $em->getRepository(\App\Entity\Product::class)->findAllProduct();
 
-        $serializer =  (new SerializerBuilder())->create()->build();
-        $jsonContent = $serializer->serialize($product, 'json');
 
-        return $this->get('app.api_response')->responseJson(
-            json_decode($jsonContent),
+        $limit = $request->query->get('limit');
+        $offset = $request->query->get('offset');
+
+        $pagination = (new ApiPagination($limit, count($product), $offset))->getConvertObject();
+
+        $response = $this->get('app.api_response')->responseJson(
+            $product,
             'msg.success.deleted',
-            null,
+            $pagination,
             200
         );
+
+        return $response;
     }
 
     /**

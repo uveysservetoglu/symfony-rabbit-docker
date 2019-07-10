@@ -1,7 +1,7 @@
 <?php
 namespace App\Response;
 
-use JMS\Serializer\SerializerBuilder;
+
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
