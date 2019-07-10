@@ -26,7 +26,7 @@ Bir docker image oluşturduk.
 
 docker-compose.yml ile rabbitmq mysql ve php çalıştırıyoruz. 
 
-
+NOT: config/parameters.yml dosyasındaki rabbitmq_host parametresine local ip adresinizi yazmanız gerekmektedir.
 ```bash
  docker-compose up -d
 ```
@@ -60,7 +60,6 @@ Proje içinde migration dosyaları da mevcuttur. Aşağıdaki komutu da tablolar
 
 
 Product ekleme sırasında consumerlar işlemesi için aşağıdaki kodu çalıştırmanız gerekmektedir.
-
 
 ```bash
  php bin/console rabbitmq:consumer product
