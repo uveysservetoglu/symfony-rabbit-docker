@@ -81,12 +81,60 @@ Aşağıdaki komut ile rabbit üzerinden fake datalar veri tabanına aktarılır
 LİST : 
 http://localhost:8000/product [GET]
 
+[RESPONSE]
+
+```bash
+{
+    "code": 200,
+    "message": "msg.success.list",
+    "result": {
+        "set": [
+            {
+                "id": 65,
+                "quantity": 5,
+                "price": "56",
+                "discount_price": "16",
+                "sku": "PHONE9S",
+                "name": "IPHONE 9S",
+                "url_key": "iphone_9s",
+                "canonical": "canonical etkiketi",
+                "description": "{"tr":"Test bir mesajd\ır. \Çeviri yap\ılacak.sss","en":"Is a test message. The translation will be done.FAQ"}",
+                "meta_keywords": "meta_keywords, meta_keywords ,meta_keywords",
+                "meta_description": "{"tr":"Test bir mesajd\ır. \Çeviri yap\ılacakss.","en":"Is a test message. Translation to be performed."}"
+            },
+            {
+                "id": 66,
+                "quantity": 5,
+                "price": "56",
+                "discount_price": "16",
+                "sku": "PHONE9S",
+                "name": "IPHONE 9S",
+                "url_key": "iphone_9s",
+                "canonical": "canonical etkiketi",
+                "description": "{"tr":"Test bir mesajd\ır. \Çeviri yap\ılacak.sss","en":"Is a test message. The translation will be done.FAQ"}",
+                "meta_keywords": "meta_keywords, meta_keywords ,meta_keywords",
+                "meta_description": "{"tr":"Test bir mesajd\ır. \Çeviri yap\ılacakss.","en":"Is a test message. Translation to be performed."}"
+            }
+        ],
+        "pagination": {
+            "pageCount": 1,
+            "recordCount": 2,
+            "itemsPerPage": 3,
+            "firstLink": null,
+            "lastLink": null,
+            "prevLink": "",
+            "nextLink": "",
+            "currentPage": 1,
+            "circular": false
+        }
+    }
+}
+```
 
 CREATE : 
 http://localhost:8000/product [POST]
 
 ```bash
-LİST
 {
 	"quantity": 5,
 	"price" :55.55,
@@ -100,13 +148,32 @@ LİST
 	"metaDescription" : "Test bir mesajdır. Çeviri yapılacakss."
 }
 ```
-
+[RESPONSE]
+```
+{
+    "code": 200,
+    "message": "msg.success.create",
+    "result": {
+        "set": {
+            "quantity": 5,
+            "price": 55.55,
+            "discountPrice": 15.55,
+            "sku": "PHONE9S",
+            "name": "IPHONE 9S",
+            "description": "Test bir mesajdır. Çeviri yapılacak.sss",
+            "urlKey": "iphone_9s",
+            "canonical": "canonical etkiketi",
+            "metaKeywords": "meta_keywords, meta_keywords ,meta_keywords",
+            "metaDescription": "Test bir mesajdır. Çeviri yapılacakss."
+        }
+    }
+}
+```
 
 UPDATE : 
 http://localhost:8000/product/12 [PUT]
 
 ```bash
-LİST
 {
 	"quantity": 5,
 	"price" :55.55,
@@ -120,9 +187,41 @@ LİST
 	"metaDescription" : "Test bir mesajdır. Çeviri yapılacakss."
 }
 ```
+[RESPONSE]
+```bash
+{
+    "code": 200,
+    "message": "msg.success.updated",
+    "result": {
+        "set": {
+            "quantity": 5,
+            "price": 55.55,
+            "discountPrice": 15.55,
+            "sku": "PHONE9S",
+            "name": "IPHONE 9S",
+            "description": "Test bir mesajdır. Çeviri yapılacak.sss",
+            "urlKey": "iphone_9s",
+            "canonical": "canonical etkiketi",
+            "metaKeywords": "meta_keywords, meta_keywords ,meta_keywords",
+            "metaDescription": "Test bir mesajdır. Çeviri yapılacakss."
+        }
+    }
+}
+```
 
 DELETE : 
 http://localhost:8000/product/12 [DELETE]
+
+[RESPONSE]
+```$xslt
+{
+    "code": 200,
+    "message": "msg.success.deleted",
+    "result": {
+        "set": null
+    }
+}
+```
 
 Product.postman_collection.json dosyasını postman de kullanabilirsiniz.
 
