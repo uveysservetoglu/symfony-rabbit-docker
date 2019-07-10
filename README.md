@@ -78,3 +78,51 @@ Aşağıdaki komut ile rabbit üzerinden fake datalar veri tabanına aktarılır
  php bin/console app:test-rabbit
 ```
 
+LİST : 
+http://localhost:8000/product [GET]
+
+
+CREATE : 
+http://localhost:8000/product [POST]
+
+```bash
+LİST
+{
+	"quantity": 5,
+	"price" :55.55,
+	"discountPrice" : 15.55,
+	"sku" : "PHONE9S",
+	"name": "IPHONE 9S",
+	"description" : "Test bir mesajdır. Çeviri yapılacak.sss",
+	"urlKey" : "iphone_9s",
+	"canonical" : "canonical etkiketi",
+	"metaKeywords" : "meta_keywords, meta_keywords ,meta_keywords",
+	"metaDescription" : "Test bir mesajdır. Çeviri yapılacakss."
+}
+```
+
+
+UPDATE : 
+http://localhost:8000/product/12 [PUT]
+
+```bash
+LİST
+{
+	"quantity": 5,
+	"price" :55.55,
+	"discountPrice" : 15.55,
+	"sku" : "PHONE9S",
+	"name": "IPHONE 9S",
+	"description" : "Test bir mesajdır. Çeviri yapılacak.sss",
+	"urlKey" : "iphone_9s",
+	"canonical" : "canonical etkiketi",
+	"metaKeywords" : "meta_keywords, meta_keywords ,meta_keywords",
+	"metaDescription" : "Test bir mesajdır. Çeviri yapılacakss."
+}
+```
+
+DELETE : 
+http://localhost:8000/product/12 [DELETE]
+
+Product.postman_collection.json dosyasını postman de kullanabilirsiniz.
+

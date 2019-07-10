@@ -1,0 +1,124 @@
+{
+	"id": "507e2e29-8ced-4b3c-ba0a-73113fc4a4e9",
+	"name": "Product",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"201d519a-c719-4105-927a-bfc6b067e894",
+		"de80a5ea-844a-4387-8404-c6f5baaca1dc",
+		"3cb7c75f-7b5d-4a69-93bc-04595903804d",
+		"475df831-27c3-4904-a8ab-5633d9a30d6d"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "201d519a-c719-4105-927a-bfc6b067e894",
+			"name": "POST Product",
+			"url": "http://localhost:8000/product",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "JREQ-TOKEN",
+					"value": "test",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\n\t\"quantity\": 5,\n\t\"price\" :55.55,\n\t\"discountPrice\" : 15.55,\n\t\"sku\" : \"PHONE9S\",\n\t\"name\": \"IPHONE 9S\",\n\t\"description\" : \"Test bir mesajdır. Çeviri yapılacak.sss\",\n\t\"urlKey\" : \"iphone_9s\",\n\t\"canonical\" : \"canonical etkiketi\",\n\t\"metaKeywords\" : \"meta_keywords, meta_keywords ,meta_keywords\",\n\t\"metaDescription\" : \"Test bir mesajdır. Çeviri yapılacakss.\"\n}",
+			"headers": "JREQ-TOKEN: test\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "3cb7c75f-7b5d-4a69-93bc-04595903804d",
+			"name": "Delete Product",
+			"url": "http://localhost:8000/product",
+			"description": "",
+			"data": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"pathVariables": {}
+		},
+		{
+			"id": "475df831-27c3-4904-a8ab-5633d9a30d6d",
+			"name": "List Product",
+			"url": "http://localhost:8000/product?limit=3&offset=0",
+			"description": "",
+			"data": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "limit",
+					"value": "3",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "offset",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"pathVariables": {}
+		},
+		{
+			"id": "de80a5ea-844a-4387-8404-c6f5baaca1dc",
+			"name": "PUT Product",
+			"url": "http://localhost:8000/product/23",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\n\t\"quantity\": 5,\n\t\"price\" :55.55,\n\t\"discountPrice\" : 15.55,\n\t\"sku\" : \"PHONE9S\",\n\t\"name\": \"IPHONE 9S\",\n\t\"description\" : \"Test bir mesajdır. Çeviri yapılacak.sss\",\n\t\"urlKey\" : \"iphone_9s\",\n\t\"canonical\" : \"canonical etkiketidir\",\n\t\"metaKeywords\" : \"meta_keywords, meta_keywords ,meta_keywords\",\n\t\"metaDescription\" : \"Test bir mesajdır. Çeviri yapılacakss.\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		}
+	]
+}
