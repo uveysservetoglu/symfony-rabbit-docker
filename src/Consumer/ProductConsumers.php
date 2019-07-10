@@ -38,7 +38,6 @@ class ProductConsumers implements  ConsumerInterface
             $productBody->description = $this->container->get('app.translate')->translate($productBody->description, 'tr', ['en']);
             $productBody->metaDescription = $this->container->get('app.translate')->translate($productBody->metaDescription, 'tr',['en']);
 
-            //dump($productBody);
 
             $product =  new Product();
 

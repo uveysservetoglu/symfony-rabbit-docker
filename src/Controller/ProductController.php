@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Object\Product;
+use App\Entity\Product;
 use App\Response\ApiPagination;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,12 +13,13 @@ class ProductController extends BaseController
 
     /**
      * @Rest\Route("/product", name="list-product", methods={"GET"})
+     * @param Request $request
      * @return JsonResponse
      */
     public function listProduct(Request $request) {
 
         $em = $this->container->get('doctrine')->getManager();
-        $product = $em->getRepository(\App\Entity\Product::class)->findAllProduct();
+        $product = $em->getRepository(Product::class)->findAllProduct();
 
 
         $limit = $request->query->get('limit');

@@ -24,9 +24,22 @@ class TestRabbitCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        for ($i = 0; $i < 20; $i++) {
 
-        $this->getContainer()
-            ->get('old_sound_rabbit_mq.product_producer')
-            ->publish(json_encode('Rabbit please answer me!'));
+            $object = new \stdClass();
+
+            $object->quantity       = mt_rand(10, 100);
+            $object->price          = mt_rand(10, 100);
+            $object->discountPrice = mt_rand(10, 100);
+            $object->sku            = 'Test mesajdır'.$i;
+            $object->name           = 'Test mesajdır'.$i;
+            $object->urlKey        = 'Test mesajdır'.$i;
+            $object->canonical      = 'Test mesajdır';
+            $object->description    = 'Test mesajdır';
+            $object->metaKeywords    = 'Test mesajdır';
+            $object->metaDescription = 'Test mesajdır';
+
+            $this->getContainer()->get('old_sound_rabbit_mq.product_producer')->publish(json_encode($object));
+        };
     }
 }
