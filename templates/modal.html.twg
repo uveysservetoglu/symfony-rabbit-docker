@@ -15,7 +15,7 @@
                 <div class="form-group">
 
                     <label for="name">Ürün açıklama</label>
-                    <textarea  class="form-control" id="name" v-model="item.description" placeholder="Ürün Açıklama">
+                    <textarea  class="form-control" id="description" v-model="description" placeholder="Ürün Açıklama">
                         {? item.description ?}
                     </textarea>
                 </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="name">metaDescription</label>
-                    <input type="text" class="form-control" id="metaDescription"  v-model="item.meta_description" placeholder="metaDescription">
+                    <input type="text" class="form-control" id="metaDescription"  v-model="meta_description" placeholder="metaDescription">
                 </div>
                 <div class="form-group">
                     <label for="name">metaKeywords</label>
@@ -50,11 +50,11 @@
                 </div>
                 <div class="form-group">
                     <label for="name">url_key</label>
-                    <input type="text" class="form-control" id="url_key"  v-model="item.url_key" placeholder="sku">
+                    <input type="text" class="form-control" id="urlKey"  v-model="item.url_key" placeholder="sku">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Kaydet</button>
+                <button type="button" class="btn btn-primary" @click="save()">Kaydet</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
             </div>
         </div>

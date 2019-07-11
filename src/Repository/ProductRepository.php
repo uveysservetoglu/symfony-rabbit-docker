@@ -18,6 +18,7 @@ class ProductRepository extends BaseRepository
         $query = $this->createQueryBuilder('product')
             ->setMaxResults($limit)
             ->setFirstResult($offset)
+            ->orderBy('product.id', 'DESC')
             ->getQuery();
         return $query->getArrayResult();
     }

@@ -4,7 +4,7 @@
     <div id="app">
         <div class="container">
             <div class="row">
-                <button class="btn btn-success mt-2">Ürün Ekle</button>
+                <button class="btn btn-success mt-2" @click="create()">Ürün Ekle</button>
             </div>
             <div class="row datatable mt-2">
                 <table id="dtBasicExample" class="table">
@@ -29,7 +29,7 @@
                             <td>{? item.discount_price ?}</td>
                             <td>{? getLang(item.description) ?}</td>
                             <td><button class="btn btn-info" @click="edit(item.id )">Düzenle</button></td>
-                            <td><button class="btn btn-danger">Sil</button></td>
+                            <td><button class="btn btn-danger" @click="delete(item.id )">Sil</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -42,8 +42,11 @@
         delimiters: ['{?', '?}'],
         el: '#app',
         data: {
+          id:null,
           items:null,
-          item: []
+          item: [],
+          description: null,
+          meta_description: null,
         },
         mounted(){
           this.listProducts();
@@ -60,14 +63,74 @@
             });
           },
           getLang(text){
-
+            console.log(text)
             return (JSON.parse(text)).tr;
+          },
+          create(){
+            $('#modal').modal('show')
           },
           edit(id){
             $('#modal').modal('show')
+            this.id = id;
             this.item = (this.items.filter(item => item.id === id))[0];
 
+            this.description =this.getLang(this.item.description);
+            this.meta_description =this.getLang(this.item.meta_description);
+          },
+          save(){
+            this.item.description = this.description;
+            this.item.meta_description = this.meta_description;
+
             console.log(this.item);
+
+            /** Normalde modelden gelen durum ***/
+            let item = {
+              name : $('#name').val(),
+              description : $('#description').val(),
+              quantity : $('#quantity').val(),
+              discountPrice : $('#discountPrice').val(),
+              price : $('#price').val(),
+              canonical : $('#canonical').val(),
+              metaDescription : $('#metaDescription').val(),
+              metaKeywords : $('#metaKeywords').val(),
+              sku : $('#sku').val(),
+              urlKey : $('#urlKey').val()
+            };
+            if(this.id){
+
+              this.$http.put('/product/'+this.id, item).then(function (response) {
+                this.$toastr('success', response.body.message, 'Başarılı');
+                $("#modal").modal('toggle');
+                this.listProducts();
+                this.item = [];
+                //location.reload();
+              },function (response) {
+                this.$toastr('error', response.body.message, 'Hata');
+              });
+            }else{
+              console.log('post')
+              this.$http.post('/product', item).then(function (response) {
+                this.$toastr('success', response.body.message, 'Başarılı');
+                $("#modal").modal('toggle');
+                this.item = [];
+                this.listProducts();
+               // location.reload();
+              },function (response) {
+                this.$toastr('error', response.body.message, 'Hata');
+              });
+            }
+          },
+
+          delete(id){
+            this.$http.delete('/product/'+this.id, item).then(function (response) {
+              this.$toastr('success', response.body.message, 'Başarılı');
+              $("#modal").modal('toggle');
+              this.listProducts();
+
+              //location.reload();
+            },function (response) {
+              this.$toastr('error', response.body.message, 'Hata');
+            });
           }
         }
       })
