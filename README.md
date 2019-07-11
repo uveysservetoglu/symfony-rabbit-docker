@@ -77,6 +77,12 @@ Aşağıdaki komut ile rabbit üzerinden fake datalar veri tabanına aktarılır
  php bin/console app:test-rabbit
 ```
 
+Projenin WEB Arayüzü ve servisler
+-----
+
+Web arayüzüne erişim için http://localhost:8000/ adresini kullanın
+Projenin arayüzü HTML, CSS, JQuery ve VUEJS kullanılmıştır.
+
 LİST : 
 http://localhost:8000/product [GET]
 
